@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'stationListPage.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String? departureStation;
+  String? arrivalStation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +46,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         '출발역',
                         style: TextStyle(
@@ -48,13 +56,37 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-                      Text('선택', style: TextStyle(fontSize: 40)),
+                      
+                      TextButton(
+  onPressed: () async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => StationListPage(
+          type: 'departure',
+          selectedOther: arrivalStation,
+        ),
+      ),
+    );
+    if (result != null) {
+      setState(() {
+        departureStation = result;
+      });
+    }
+  },
+  child: Text(
+    departureStation ?? '선택',
+    style: const TextStyle(fontSize: 40, color: Colors.black),
+  ),
+),
+
+
                     ],
                   ),
                   Container(width: 2, height: 50, color: Colors.grey),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         '도착역',
                         style: TextStyle(
@@ -64,7 +96,31 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-                      Text('선택', style: TextStyle(fontSize: 40)),
+                      
+TextButton(
+  onPressed: () async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => StationListPage(
+          type: 'arrival',
+          selectedOther: departureStation,
+        ),
+      ),
+    );
+    if (result != null) {
+      setState(() {
+        arrivalStation = result;
+      });
+    }
+  },
+  child: Text(
+    arrivalStation ?? '선택',
+    style: const TextStyle(fontSize: 40, color: Colors.black),
+  ),
+),
+
+
                     ],
                   ),
                 ],
@@ -91,7 +147,6 @@ class HomePage extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    
                   ),
                 ),
               ),
