@@ -56,31 +56,32 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(height: 10),
-                      
+
                       TextButton(
-  onPressed: () async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => StationListPage(
-          type: 'departure',
-          selectedOther: arrivalStation,
-        ),
-      ),
-    );
-    if (result != null) {
-      setState(() {
-        departureStation = result;
-      });
-    }
-  },
-  child: Text(
-    departureStation ?? '선택',
-    style: const TextStyle(fontSize: 40, color: Colors.black),
-  ),
-),
-
-
+                        onPressed: () async {
+                          final result = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StationListPage(
+                                type: 'departure',
+                                selectedOther: arrivalStation,
+                              ),
+                            ),
+                          );
+                          if (result != null) {
+                            setState(() {
+                              departureStation = result;
+                            });
+                          }
+                        },
+                        child: Text(
+                          departureStation ?? '선택',
+                          style: const TextStyle(
+                            fontSize: 40,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   Container(width: 2, height: 50, color: Colors.grey),
@@ -96,37 +97,38 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(height: 10),
-                      
-TextButton(
-  onPressed: () async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => StationListPage(
-          type: 'arrival',
-          selectedOther: departureStation,
-        ),
-      ),
-    );
-    if (result != null) {
-      setState(() {
-        arrivalStation = result;
-      });
-    }
-  },
-  child: Text(
-    arrivalStation ?? '선택',
-    style: const TextStyle(fontSize: 40, color: Colors.black),
-  ),
-),
 
-
+                      TextButton(
+                        onPressed: () async {
+                          final result = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StationListPage(
+                                type: 'arrival',
+                                selectedOther: departureStation,
+                              ),
+                            ),
+                          );
+                          if (result != null) {
+                            setState(() {
+                              arrivalStation = result;
+                            });
+                          }
+                        },
+                        child: Text(
+                          arrivalStation ?? '선택',
+                          style: const TextStyle(
+                            fontSize: 40,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
               height: 50,
