@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'stationListPage.dart';
+import 'seatPage.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -134,7 +136,21 @@ class _HomePageState extends State<HomePage> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  // 좌석 선택 로직
+                  if (departureStation != null && arrivalStation != null) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SeatPage(
+                          departureStation: departureStation!,
+                          arrivalStation: arrivalStation!,
+                        ),
+                      ),
+                    );
+                  } //else {
+                    //ScaffoldMessenger.of(context).showSnackBar(
+                      //SnackBar(content: Text('출발역과 도착역을 모두 선택하세요.')),
+                    //);
+                 // }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
@@ -153,6 +169,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+
             SizedBox(height: 50),
           ],
         ),

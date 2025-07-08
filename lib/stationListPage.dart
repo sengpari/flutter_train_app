@@ -35,10 +35,10 @@ StationListPage({super.key, required this.type, this.selectedOther});
               height: 50,
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    color: Color(0xFFe0e0e0),
+                    color: Colors.grey[300]!,
                     width: 1,
                   ),
                 ),
