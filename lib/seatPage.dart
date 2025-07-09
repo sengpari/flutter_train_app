@@ -183,7 +183,7 @@ class _SeatPageState extends State<SeatPage> {
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                       CupertinoDialogAction(
-                        child: const Text("확인"),
+                        child: const Text("확인", style: TextStyle(color: Colors.blue)),
                         onPressed: () {
                           // 예매 처리 로직 자리
                           Navigator.of(context).pop();
