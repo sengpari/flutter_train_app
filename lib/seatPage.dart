@@ -141,8 +141,11 @@ class SeatPage extends StatelessWidget {
           SizedBox(height: 6),
           seatRow(20),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+          
+        ],
+      ),
+      bottomNavigationBar: Padding(
+            padding: const EdgeInsets.fromLTRB(30, 0, 30, 40),
             child: SizedBox(
               width: double.infinity,
               height: 50,
@@ -166,8 +169,6 @@ class SeatPage extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
     );
   }
 
