@@ -15,7 +15,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? Colors.black
+          : Colors.grey[200],
 
       appBar: AppBar(
         title: const Text('기차 예매'),
@@ -32,7 +34,10 @@ class _HomePageState extends State<HomePage> {
               height: 200,
 
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[800]
+                    : Colors.white,
+
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
@@ -77,9 +82,9 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Text(
                           departureStation ?? '선택',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 40,
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),
@@ -118,9 +123,9 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Text(
                           arrivalStation ?? '선택',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 40,
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),

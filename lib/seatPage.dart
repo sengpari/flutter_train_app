@@ -45,7 +45,7 @@ class _SeatPageState extends State<SeatPage> {
                           color: Colors.purple,
                         ),
                       ),
-                  
+
                       Text(
                         widget.arrivalStation,
                         style: TextStyle(
@@ -87,7 +87,10 @@ class _SeatPageState extends State<SeatPage> {
                     width: 25,
                     height: 25,
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.grey[700]
+                          : Colors.white,
+
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
@@ -255,7 +258,11 @@ class _SeatPageState extends State<SeatPage> {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: isSelected ? Colors.purple : Colors.grey[300],
+                color: isSelected
+                    ? Colors.purple
+                    : Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[700]
+                    : Colors.grey[300],
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
