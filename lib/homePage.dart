@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'stationListPage.dart';
 import 'seatPage.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -146,11 +145,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     );
-                  } //else {
-                    //ScaffoldMessenger.of(context).showSnackBar(
-                      //SnackBar(content: Text('출발역과 도착역을 모두 선택하세요.')),
-                    //);
-                 // }
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('출발역과 도착역을 모두 선택하세요.')),
+                    );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
