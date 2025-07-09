@@ -23,8 +23,7 @@ class _SeatPageState extends State<SeatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('좌석 선택'), centerTitle: true),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 75),
+      body: Column(
         children: [
           //출발역과 도착역 표시
           SizedBox(
@@ -33,27 +32,30 @@ class _SeatPageState extends State<SeatPage> {
               alignment: Alignment.center,
               children: [
                 const Icon(Icons.arrow_circle_right_outlined, size: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      widget.departureStation,
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        widget.departureStation,
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.purple,
+                        ),
                       ),
-                    ),
-
-                    Text(
-                      widget.arrivalStation,
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                  
+                      Text(
+                        widget.arrivalStation,
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.purple,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -96,58 +98,64 @@ class _SeatPageState extends State<SeatPage> {
             ],
           ),
           SizedBox(height: 5),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 75),
+              children: [
+                //좌석배치도
+                Row(
+                  children: [
+                    columnSeat('A'),
+                    columnSeat('B'),
+                    SizedBox(width: 60),
+                    columnSeat('C'),
+                    columnSeat('D'),
+                  ],
+                ),
 
-          //좌석배치도
-          Row(
-            children: [
-              columnSeat('A'),
-              columnSeat('B'),
-              SizedBox(width: 60),
-              columnSeat('C'),
-              columnSeat('D'),
-            ],
+                SizedBox(height: 6),
+                seatRow(1),
+                SizedBox(height: 6),
+                seatRow(2),
+                SizedBox(height: 6),
+                seatRow(3),
+                SizedBox(height: 6),
+                seatRow(4),
+                SizedBox(height: 6),
+                seatRow(5),
+                SizedBox(height: 6),
+                seatRow(6),
+                SizedBox(height: 6),
+                seatRow(7),
+                SizedBox(height: 6),
+                seatRow(8),
+                SizedBox(height: 6),
+                seatRow(9),
+                SizedBox(height: 6),
+                seatRow(10),
+                SizedBox(height: 6),
+                seatRow(11),
+                SizedBox(height: 6),
+                seatRow(12),
+                SizedBox(height: 6),
+                seatRow(13),
+                SizedBox(height: 6),
+                seatRow(14),
+                SizedBox(height: 6),
+                seatRow(15),
+                SizedBox(height: 6),
+                seatRow(16),
+                SizedBox(height: 6),
+                seatRow(17),
+                SizedBox(height: 6),
+                seatRow(18),
+                SizedBox(height: 6),
+                seatRow(19),
+                SizedBox(height: 6),
+                seatRow(20),
+              ],
+            ),
           ),
-
-          SizedBox(height: 6),
-          seatRow(1),
-          SizedBox(height: 6),
-          seatRow(2),
-          SizedBox(height: 6),
-          seatRow(3),
-          SizedBox(height: 6),
-          seatRow(4),
-          SizedBox(height: 6),
-          seatRow(5),
-          SizedBox(height: 6),
-          seatRow(6),
-          SizedBox(height: 6),
-          seatRow(7),
-          SizedBox(height: 6),
-          seatRow(8),
-          SizedBox(height: 6),
-          seatRow(9),
-          SizedBox(height: 6),
-          seatRow(10),
-          SizedBox(height: 6),
-          seatRow(11),
-          SizedBox(height: 6),
-          seatRow(12),
-          SizedBox(height: 6),
-          seatRow(13),
-          SizedBox(height: 6),
-          seatRow(14),
-          SizedBox(height: 6),
-          seatRow(15),
-          SizedBox(height: 6),
-          seatRow(16),
-          SizedBox(height: 6),
-          seatRow(17),
-          SizedBox(height: 6),
-          seatRow(18),
-          SizedBox(height: 6),
-          seatRow(19),
-          SizedBox(height: 6),
-          seatRow(20),
         ],
       ),
 
@@ -177,7 +185,6 @@ class _SeatPageState extends State<SeatPage> {
                           // 예매 처리 로직 자리
                           Navigator.of(context).pop();
                           Navigator.of(context).pop();
-                          
                         },
                       ),
                     ],
