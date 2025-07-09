@@ -1,16 +1,52 @@
-# flutter_train_app
+﻿# 🚄 기차 예매 앱 (기초 챕터 과제)
 
-A new Flutter project.
+기초 챕터의 목표인 **‘레이아웃 나누기’**, **‘위젯과 친해지기’**를 바탕으로, 실무처럼 주어진 UI 명세서를 보고 기차 예매 앱을 구현했습니다.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✅ 기능 소개
 
-A few resources to get you started if this is your first Flutter project:
+- 출발역과 도착역 선택
+  - 두 역은 서로 중복 선택이 불가능합니다.
+- 좌석 선택
+  - 20행 × 4열 좌석 배치 (A ~ D)
+  - 한 칸만 선택 가능하며, 선택 시 보라색으로 하이라이트
+- 예매 버튼 클릭 시 확인 다이얼로그 출력
+  - `취소`: 다이얼로그 닫기
+  - `확인`: HomePage로 이동 (뒤로가기 2번)
+- 다크모드 완벽 대응
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙ 예외 처리 (안정성)
+
+- 출발역/도착역을 둘 다 선택하지 않으면 `스낵바`로 안내
+- 좌석을 선택하지 않은 상태에서 예매 시 `스낵바`로 안내
+- 동일한 역을 출발역/도착역으로 선택하려고 하면 선택 불가
+
+---
+
+## 🎨 UX 고려한 부분들 (사용성)
+
+- 좌석 선택 시 시각적으로 구분 가능한 컬러 적용 (선택됨: 보라색, 선택 안됨: 회색)
+- 좌석 선택 상태 안내 UI 추가 (선택됨/선택안됨 색상 표시)
+- 다크모드 시 텍스트, 버튼, 좌석 색상 모두 명확하게 보이도록 컬러 대응
+- `확인` 버튼은 테마와 무관하게 파란색으로 고정하여 일관성 유지
+
+---
+
+## 🛠 사용한 기술 및 구성
+
+- **Flutter (Dart)**
+- `StatefulWidget`으로 상태 관리
+- `CupertinoDialog`로 iOS 스타일 팝업 구현
+- `MaterialPageRoute`로 화면 이동 처리
+- 다크모드 대응을 위한 `ThemeData`, `colorScheme` 사용
+
+---
+
+## 💡 회고
+
+이번 과제를 통해 다양한 위젯들을 손으로 직접 그려보며 **레이아웃 설계 능력**을 키울 수 있었습니다. 또한 단순히 UI만 구현하는 것이 아니라, 사용성을 고려하고 예외 상황을 처리하면서 **앱의 안정성과 UX**의 중요성도 체감했습니다. 단순히 동작만 하는 앱이 아닌, **사용자에게 배려된 앱**을 만드는 것이 중요하다는 걸 배운 챕터였습니다.
+
+
