@@ -141,15 +141,21 @@ class _HomePageState extends State<HomePage> {
               child: ElevatedButton(
                 onPressed: () {
                   if (departureStation != null && arrivalStation != null) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SeatPage(
-                          departureStation: departureStation!,
-                          arrivalStation: arrivalStation!,
+                    try {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SeatPage(
+                            departureStation: departureStation!,
+                            arrivalStation: arrivalStation!,
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('좌석 선택 페이지로 이동 중 오류 발생: $e')),
+                      );
+                    }
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('출발역과 도착역을 모두 선택하세요.')),
