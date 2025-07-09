@@ -17,30 +17,42 @@ class SeatPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 75),
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                departureStation,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple,
+          //출발역과 도착역 표시
+          SizedBox(
+            height: 40,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                const Icon(Icons.arrow_circle_right_outlined, size: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      departureStation,
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.purple,
+                      ),
+                    ),
+
+                    //SizedBox(width: 50),
+                    Text(
+                      arrivalStation,
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              //SizedBox(width: 50),
-              Icon(Icons.arrow_circle_right_outlined, size: 30),
-              //SizedBox(width: 50),
-              Text(
-                arrivalStation,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
+          SizedBox(height: 20),
+
+          //좌석 선택됨과 선택안됨
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -75,7 +87,20 @@ class SeatPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 25),
+          SizedBox(height: 5),
+
+          //좌석배치도
+          Row(
+            children: [
+              columnSeat('A'),
+              columnSeat('B'),
+              SizedBox(width: 60),
+              columnSeat('C'),
+              columnSeat('D'),
+            ],
+          ),
+
+          SizedBox(height: 6),
           seatRow(1),
           SizedBox(height: 6),
           seatRow(2),
@@ -143,6 +168,12 @@ class SeatPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Expanded columnSeat(String colSeat) {
+    return Expanded(
+      child: Center(child: Text('$colSeat', style: TextStyle(fontSize: 17))),
     );
   }
 
