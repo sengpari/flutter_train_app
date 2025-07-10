@@ -9,6 +9,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+//출발역과 도착역을 선택하는 페이지
 class _HomePageState extends State<HomePage> {
   String? departureStation;
   String? arrivalStation;
@@ -50,6 +51,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  //출발역 선택
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -90,7 +92,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
+                  //가운데 디바이더
                   Container(width: 2, height: 50, color: Colors.grey),
+                  //도착역 선택
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -134,6 +138,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+
+            //좌석선택버튼
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
